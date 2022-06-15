@@ -1,6 +1,10 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
 
+    
+const octokit = github.getOctokit(token);
+const response = await octokit.pulls.update(request);
+
 try {
     const nameToGreet = core.getInput('who-to-greet');
     console.log(`Hello ${nameToGreet}!`);
@@ -23,10 +27,6 @@ try {
 
     console.log(pullRequestTitle)
     console.log(pullRequestNumber)
-    
-    const octokit = github.getOctokit(token);
-    const response = await octokit.pulls.update(request);
-
 
     if (!pullRequestTitle.toString().includes('[')) {
         let updatedTitle = `[${pullRequestNumber}] ` + pullRequestTitle;
