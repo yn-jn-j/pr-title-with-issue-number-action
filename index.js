@@ -23,6 +23,10 @@ try {
 
     console.log(pullRequestTitle)
     console.log(pullRequestNumber)
+    
+    const octokit = github.getOctokit(token);
+    const response = await octokit.pulls.update(request);
+
 
     if (!pullRequestTitle.toString().includes('[')) {
         let updatedTitle = `[${pullRequestNumber}] ` + pullRequestTitle;
@@ -32,8 +36,6 @@ try {
 
         request.title = updatedTitle;
 
-        const octokit = github.getOctokit(token);
-        const response = await octokit.pulls.update(request);
 
         if (response.status !== 200) {
             core.error("failed");
