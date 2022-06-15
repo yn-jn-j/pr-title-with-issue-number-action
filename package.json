@@ -1,0 +1,24 @@
+{
+  "name": "pr-title-with-issue-number-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/citrusj/pr-title-with-issue-number-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/citrusj/pr-title-with-issue-number-action/issues"
+  },
+  "homepage": "https://github.com/citrusj/pr-title-with-issue-number-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.8.2",
+    "@actions/github": "^5.0.3"
+  }
+}
