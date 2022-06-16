@@ -1,2 +1,2 @@
 # pr-title-with-issue-number-action
-- v2.1
+- Update PR title to "[#issue_number] pr_title"
