@@ -31,8 +31,7 @@ async function run() {
             request.title = updatedTitle;
             
             const octokit = github.getOctokit(token);
-            const response = await octokit.pulls.update(request);
-            octokit.rest.pulls.update(request)
+            const response = await octokit.rest.pulls.update(request);
             
             core.info(`Response : ${response.status}`);
             if(response.status !== 200) {
