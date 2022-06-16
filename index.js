@@ -23,7 +23,7 @@ async function run() {
         console.log(`PR number : ${pullRequestNumber}`)
         
         if (!pullRequestTitle.toString().includes('[')) {
-            let updatedTitle = `[${pullRequestNumber}] ` + pullRequestTitle;
+            let updatedTitle = `[#${pullRequestNumber}] ` + pullRequestTitle;
             core.setOutput('titleUpdated', updatedTitle)
             
             console.log(`Updated title : ${updatedTitle}`)
@@ -32,6 +32,7 @@ async function run() {
             
             const octokit = github.getOctokit(token);
             const response = await octokit.pulls.update(request);
+            octokit.rest.pulls.update(request)
             
             core.info(`Response : ${response.status}`);
             if(response.status !== 200) {
