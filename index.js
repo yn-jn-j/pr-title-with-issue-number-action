@@ -23,23 +23,6 @@ try {
 
     console.log(pullRequestTitle)
     console.log(pullRequestNumber)
-
-    if (!pullRequestTitle.toString().includes('[')) {
-        let updatedTitle = `[${pullRequestNumber}] ` + pullRequestTitle;
-        core.setOutput('titleUpdated', updatedTitle)
-
-        console.log(updatedTitle)
-
-        request.title = updatedTitle;
-
-        const octokit = github.getOctokit(token);
-        const response = await octokit.pulls.update(request);
-
-        if (response.status !== 200) {
-            core.error("failed");
-        }
-        console.log("Title Updated !")
-    }
 } catch (error) {
     core.setFailed(error.message);
 }
