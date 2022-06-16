@@ -3,18 +3,6 @@ const github = require('@actions/github')
 
 async function run() {
     try {
-        const nameToGreet = core.getInput('who-to-greet');
-        console.log(`Hello ${nameToGreet}!`);
-
-        const time = (new Date()).toTimeString();
-        core.setOutput("time", time);
-
-        const request = {
-            owner: github.context.repo.owner,
-            repo: github.context.repo.repo,
-            pull_number: github.context.payload.pull_request.number,
-        }
-
         const token = core.getInput('repo-token')
         const pullRequestTitle = github.context.payload.pull_request.title
         const pullRequestNumber = github.context.payload.pull_request.number
@@ -24,14 +12,15 @@ async function run() {
         
         if (!pullRequestTitle.toString().includes('[')) {
             let updatedTitle = `[#${pullRequestNumber}] ` + pullRequestTitle;
-            core.setOutput('titleUpdated', updatedTitle)
             
             console.log(`Updated title : ${updatedTitle}`)
             
-            request.title = updatedTitle;
-            
             const octokit = github.getOctokit(token);
-            const response = await octokit.rest.pulls.update(request);
+            const response = await octokit.rest.pulls.update({
+                owner: github.context.repo.owner,
+                repo: github.context.repo.repo,
+                pull_number: github.context.payload.pull_request.number,
+            });
             
             core.info(`Response : ${response.status}`);
             if(response.status !== 200) {
