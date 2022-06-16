@@ -4,7 +4,7 @@ const github = require('@actions/github')
 async function run() {
     try {
         const token = core.getInput('repo-token')
-        const pullRequestTitle = github.context.payload.pull_request.title
+        const pullRequestTitle = core.getInput('pr-title')
         const pullRequestNumber = github.context.payload.pull_request.number
 
         console.log(`PR title : ${pullRequestTitle}`)
