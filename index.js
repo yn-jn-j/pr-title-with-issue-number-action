@@ -16,7 +16,7 @@ async function run() {
         }
 
         const token = core.getInput('repo-token')
-        const pullRequestTitle = core.getInput('pr-title')
+        const pullRequestTitle = github.context.payload.pull_request.title
         const pullRequestNumber = github.context.payload.pull_request.number
 
         console.log(`PR title : ${pullRequestTitle}`)
