@@ -8,10 +8,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: citrusj/pr-title-with-issue-number-action@v2.8
+        uses: citrusj/pr-title-with-issue-number-action@v3.0
         with:
-          who-to-greet: 'Mona the Octocat'
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           pr-title: "${{ github.event.pull_request.title }}"
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
