@@ -16,11 +16,14 @@ async function run() {
             console.log(`Updated title : ${updatedTitle}`)
             
             const octokit = github.getOctokit(token);
-            const response = await octokit.rest.pulls.update({
+            const request = {
                 owner: github.context.repo.owner,
                 repo: github.context.repo.repo,
-                pull_number: github.context.payload.pull_request.number
-            });
+                pull_number: github.context.payload.pull_request.number,
+            }
+            request.title = updatedTitle
+            
+            const response = await octokit.rest.pulls.update(request);
             
             core.info(`Response : ${response.status}`);
             if(response.status !== 200) {
