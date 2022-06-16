@@ -4,6 +4,9 @@ inputs:
   repo-token:
     description: "The GITHUB_TOKEN secret"
     required: true
+  pr-title:
+    description: "Title of current Pull Request"
+    required: true
 runs:
   using: 'node16'
   main: 'index.js'
