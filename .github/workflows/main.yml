@@ -1,5 +1,5 @@
 on: 
-  push:
+  pull_request:
   
 jobs:
   hello_world_job:
@@ -8,8 +8,10 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: citrusj/pr-title-with-issue-number-action@v1.1
+        uses: citrusj/pr-title-with-issue-number-action@v2.1
         with:
           who-to-greet: 'Mona the Octocat'
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          pr-title: "${{ github.event.pull_request.title }}"
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
