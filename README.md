@@ -15,3 +15,4 @@ It does nothing when the title is like
 
 - `[#123] title`
 - `[WIP] title`
+- `[org/repo#123] title`
