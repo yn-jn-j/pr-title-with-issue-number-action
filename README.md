@@ -14,3 +14,4 @@ Or adds `[ ]` around the given issue number.
 It does nothing when the title is like
 
 - `[#123] title`
+- `[WIP] title`
