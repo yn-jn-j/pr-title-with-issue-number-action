@@ -9,3 +9,4 @@ It adds current PR number
 
 Or adds `[ ]` around the given issue number.
 - `#123 title` -> `[#123] title`
+
