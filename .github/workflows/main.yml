@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: citrusj/pr-title-with-issue-number-action@v3.3
+        uses: citrusj/pr-title-with-issue-number-action@v3.4
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           pr-title: "${{ github.event.pull_request.title }}"
