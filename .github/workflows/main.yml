@@ -1,12 +1,13 @@
+name: Rename PR Title
 on: 
   pull_request:
   
 jobs:
   rename-pull-request-title:
     runs-on: ubuntu-latest
-    name: rename pull request title
     steps:
-      - uses: citrusj/pr-title-with-issue-number-action@v3.4
+      - name: Rename PR title
+        uses: citrusj/pr-title-with-issue-number-action@v3.4
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           pr-title: "${{ github.event.pull_request.title }}"
