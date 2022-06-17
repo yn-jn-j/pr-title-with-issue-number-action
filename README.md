@@ -12,7 +12,6 @@ Or adds `[ ]` around the given issue number.
 - `[123] title` -> `[#123] title`
 
 It does nothing when the title is like
-
 - `[#123] title`
 - `[WIP] title`
 - `[org/repo#123] title`
