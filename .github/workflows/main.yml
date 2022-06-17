@@ -1,13 +1,12 @@
+name: Rename PR Title
 on: 
   pull_request:
   
 jobs:
-  hello_world_job:
+  rename-pull-request-title:
     runs-on: ubuntu-latest
-    name: A job to say hello
     steps:
-      - name: Hello world action step
-        id: hello
+      - name: Rename PR title
         uses: citrusj/pr-title-with-issue-number-action@v3.4
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
