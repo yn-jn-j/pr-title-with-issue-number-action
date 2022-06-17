@@ -2,13 +2,11 @@ on:
   pull_request:
   
 jobs:
-  hello_world_job:
+  rename-pull-request-title:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: rename pull request title
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: citrusj/pr-title-with-issue-number-action@v3.4
+      - uses: citrusj/pr-title-with-issue-number-action@v3.4
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           pr-title: "${{ github.event.pull_request.title }}"
