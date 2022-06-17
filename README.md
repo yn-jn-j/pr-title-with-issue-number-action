@@ -1,2 +1,6 @@
 # pr-title-with-issue-number-action
-test
+
+Rename PR title with PR number.
+
+It adds current PR number 
+- `title` -> `[#1] title`
