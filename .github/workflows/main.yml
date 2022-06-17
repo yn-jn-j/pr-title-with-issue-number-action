@@ -1,6 +1,7 @@
 name: Rename PR Title
 on: 
   pull_request:
+    types: [opened]
   
 jobs:
   rename-pull-request-title:
